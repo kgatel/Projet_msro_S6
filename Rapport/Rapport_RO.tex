@@ -104,9 +104,9 @@ $$ G(z) = \frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$ \\
 
 Dans un premier temps, on cherche à savoir si ces deux filtres sont réalisables physiquement.\\
 
-On s’intéressera ensuite à la mise en cascade de ces deux filtres pour déterminer s'il agit par équivalence d'un filtre unique.\\
+On s’intéressera ensuite à la mise en cascade de ces deux filtres pour déterminer s'il agit par équivalence d'un unique filtre.\\
 
-Enfin nous étudierons leur mise en parallèle avec les mêmes objectifs que pour leur mise en cascade.
+Enfin nous étudierons leur mise en parallèle avec les mêmes objectifs que pour la mise en cascade.
 
 
 \chapter{Filtres réalisables ?}
@@ -129,11 +129,11 @@ D'où : $$ \begin{array}{ccl}
 On obtient :
 $$\left.\begin{aligned}
 	&z_{1Dh} = \frac{-0.9+i\sqrt{2,39}}{2} \\
-	&\quad = -0.45 + i\frac{\sqrt{2,39}}{2} \\
+	&\quad\quad = -0.45 + i\frac{\sqrt{2,39}}{2} \\
 \end{aligned}\quad\right|
 \quad\left.\begin{aligned}
 	&z_{2Dh} = \frac{-0.9-i\sqrt{2,39}}{2}\\
-	&\quad = -0.45 - i\frac{\sqrt{2,39}}{2} \\
+	&\quad\quad = -0.45 - i\frac{\sqrt{2,39}}{2} \\
 \end{aligned}\right.$$
 
 Ainsi :
@@ -158,11 +158,11 @@ D'où : $$ \begin{array}{ccl}
 On obtient :
 $$\left.\begin{aligned}
 	&z_{1Dg} = \frac{-0.7+i\sqrt{2,91}}{2} \\
-	&\quad = -0.35 + i\frac{\sqrt{2,91}}{2} \\
+	&\quad\quad = -0.35 + i\frac{\sqrt{2,91}}{2} \\
 \end{aligned}\quad\right|
 \quad\left.\begin{aligned}
 	&z_{2Dg} = \frac{-0.7-i\sqrt{2,91}}{2}\\
-	&\quad =-0.35 - i\frac{\sqrt{2,91}}{2} \\
+	&\quad\quad =-0.35 - i\frac{\sqrt{2,91}}{2} \\
 \end{aligned}\right.$$
 
 Ainsi :
@@ -261,6 +261,46 @@ $$ G(z) = \frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$
 
 \chapter{Mise en cascade}
 
+On met en cascade les filtres $H(z)$ et $G(z)$. Posons $y_k$ le filtre équivalent à la convolutée tel que : 
+$$y_k=h_k*g_k$$
+
+On a :
+$$ Y(z)=\sum_{k=-\infty}^{\infty}y_kz^{-k}=\sum_{k=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mg_{k-m}\right)z^{-k} $$
+
+On pose $n=k-m$
+
+$$ Y(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mg_n\right)z^{-(n+m)} $$
+$$ Y(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mz^{-m}\right)g_nz^{-n} $$
+
+On retrouve
+$$ Y(z)=H(z)G(z) $$
+
+Le filtre équivalent à la mise en cascade des deux filtres est le produit des deux filtres.\\
+
+On a donc \\
+$$ Y(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})}*\frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$\\
+$$Y(z)= \frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}}*\frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$\\
+
+En développant on trouve :
+$$Y(z)=\frac{0.06-0.19z^{-1}+0.27z^{-2}-0.26z^{-3}+0.12z^{-4}}{1+1.6z^{-1}+2.28z^{-2}+1.325z^{-3}+0.68z^{-4}} $$\\
+
+On peut ainsi représenter les pôles et les zéros de ce filtre sur le plan complexe comme ci-dessous :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.6\textwidth]{./Images/zplane_HG}
+	\caption{Visualisation des pôles et des zéros du filtre $Y$}
+\end{figure}\vspace{0.2cm}
+
+On retrouve bien les deux pôles et les deux zéros des filtres respectifs $H$ et $G$.\\
+
+On peut également visualiser sa réponse en fréquence ci-dessous :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.6\textwidth]{./Images/freqz_HG}
+	\caption{Visualisation de $|Y(f)|$ sur [0,0.5]}
+\end{figure}\vspace{0.2cm}
 
 \chapter{Mise en parallèle}
 
