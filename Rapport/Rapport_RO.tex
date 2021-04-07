@@ -18,7 +18,7 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{xcolor}
-\usepackage{caption}
+\usepackage[justification=centering]{caption}
 \usepackage{float}
 \usepackage{tabto}
 
@@ -95,9 +95,175 @@ numbers=left}
 %\listoffigures
 
 \renewcommand{\chaptername}{}
-\chapter*{Introduction}
+\chapter*{Introduction du problème}
 
-\chapter{Yesss}
+Soit deux filtres $h_k$ et $g_k$ tels que :\\
+
+$$ H(z) = \frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}} $$
+$$ G(z) = \frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$ \\
+
+Dans un premier temps, on cherche à savoir si ces deux filtres sont réalisables physiquement.\\
+
+On s’intéressera ensuite à la mise en cascade de ces deux filtres pour déterminer s'il agit par équivalence d'un filtre unique.\\
+
+Enfin nous étudierons leur mise en parallèle avec les mêmes objectifs que pour leur mise en cascade.
+
+
+\chapter{Filtres réalisables ?}
+
+\section{Pôles}
+
+\subsection{$H(z)$}
+
+\vspace{0.25cm}
+
+On a $$ H(z) = \frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}} = \frac{0.3z^2-0.2z+0.4}{z^2+0.9z+0.8} $$
+
+Dénominateur : $$ D_h= z^2+0.9z+0.8 $$
+
+D'où : $$ \begin{array}{ccl}
+\Delta & = & 0.9^2-4*1*0.8 \\
+	   & = & -2.39 \\
+\end{array} $$
+
+On obtient :
+$$\left.\begin{aligned}
+	&z_{1Dh} = \frac{-0.9+i\sqrt{2,39}}{2} \\
+	&\quad = -0.45 + i\frac{\sqrt{2,39}}{2} \\
+\end{aligned}\quad\right|
+\quad\left.\begin{aligned}
+	&z_{2Dh} = \frac{-0.9-i\sqrt{2,39}}{2}\\
+	&\quad = -0.45 - i\frac{\sqrt{2,39}}{2} \\
+\end{aligned}\right.$$
+
+Ainsi :
+$$ |z_{1Dh}|=|z_{2Dh}|=\sqrt{(-0.45)^2+\left(\frac{\sqrt{2,39}}{2}\right)^2} \simeq 0.89 < 1 $$
+
+
+$H(z)$ a tous ses pôles à l'intérieur du cercle unité \textbf{donc le filtre est réalisable physiquement}.\\
+
+\subsection{$G(z)$}
+
+\vspace{0.25cm}
+
+On a $$ G(z) = \frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} = \frac{0.2z^2-0.5z+0.3}{z^2+0.7z+0.85} $$
+
+Dénominateur : $$ D_g= z^2+0.7z+0.85 $$
+
+D'où : $$ \begin{array}{ccl}
+\Delta & = & 0.7^2-4*1*0.85 \\
+	   & = & -2.91 \\
+\end{array} $$
+
+On obtient :
+$$\left.\begin{aligned}
+	&z_{1Dg} = \frac{-0.7+i\sqrt{2,91}}{2} \\
+	&\quad = -0.35 + i\frac{\sqrt{2,91}}{2} \\
+\end{aligned}\quad\right|
+\quad\left.\begin{aligned}
+	&z_{2Dg} = \frac{-0.7-i\sqrt{2,91}}{2}\\
+	&\quad =-0.35 - i\frac{\sqrt{2,91}}{2} \\
+\end{aligned}\right.$$
+
+Ainsi :
+$$ |z_{1Dg}|=|z_{2Dg}|=\sqrt{(-0.35)^2+\left(\frac{\sqrt{2,91}}{2}\right)^2} \simeq 0.92 < 1 $$
+
+
+$G(z)$ a tous ses pôles à l'intérieur du cercle unité \textbf{donc le filtre est réalisable physiquement}.
+
+\section{Zéros}
+
+\subsection{$H(z)$}
+
+\vspace{0.25cm}
+
+On a $$ H(z) = \frac{0.3z^2-0.2z+0.4}{(z-z_{1Dh})(z-z_{2Dh})} $$
+
+Numérateur : $$ N_h= 0.3z^2-0.2z+0.4 $$
+
+D'où : $$ \begin{array}{ccl}
+\Delta & = & (-0.2)^2-4*0.3*0.4 \\
+	   & = & -0,44 \\
+\end{array} $$
+
+On obtient :
+$$\left.\begin{aligned}
+	&z_{1Nh} = \frac{0.2+i\sqrt{0.44}}{2*0.3} \\
+	&\quad\quad = \frac{1}{3} + \frac{5}{3}i\sqrt{0.44} \\
+\end{aligned}\quad\right|
+\quad\left.\begin{aligned}
+	&z_{2Nh} = \frac{0.2-i\sqrt{0.44}}{2*0.3}\\
+	&\quad\quad = \frac{1}{3} - \frac{5}{3}i\sqrt{0.44} \\
+\end{aligned}\right.$$
+
+\subsection{$G(z)$}
+
+\vspace{0.25cm}
+
+On a $$ G(z) = \frac{0.2z^2-0.5z+0.3}{(z-z_{1Dg})(z-z_{2Dg})} $$
+
+Numérateur : $$ N_g= 0.2z^2-0.5z+0.3 $$
+
+D'où : $$ \begin{array}{ccl}
+\Delta & = & (-0.5)^2-4*0.2*0.3 \\
+	   & = & 0.01 \\
+\end{array} $$
+
+On obtient :
+$$\left.\begin{aligned}
+	&z_{1Ng} = \frac{0.5+\sqrt{0.01}}{2*0.2} \\
+	&\quad\quad = \frac{3}{2} \\
+\end{aligned}\quad\right|
+\quad\left.\begin{aligned}
+	&z_{2Ng} = \frac{0.5-\sqrt{0.01}}{2*0.2}\\
+	&\quad\quad = 1 \\
+\end{aligned}\right.$$\\
+
+\section{Représentation dans le plan complexe (zplane)}
+
+\vspace{0.25cm}
+On a :
+$$ H(z) = \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})} $$
+
+et
+$$ G(z) = \frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$
+
+\begin{figure}[H]
+    \begin{minipage}[c]{.50\linewidth}
+        \centering
+        \includegraphics[width=1\textwidth]{./Images/zplane_H}\\
+        \caption{Visualisation des pôles et des zéros du filtre $H$}
+    \end{minipage}
+    \hfill%
+    \begin{minipage}[c]{.50\linewidth}
+        \centering
+        \includegraphics[width=1\textwidth]{./Images/zplane_G}\\
+        \caption{Visualisation des pôles et des zéros du filtre $G$}
+    \end{minipage}
+\end{figure}\vspace{0.3cm}
+
+\section{Réponse en fréquence}
+
+\begin{figure}[H]
+    \begin{minipage}[c]{.50\linewidth}
+        \centering
+        \includegraphics[width=1\textwidth]{./Images/freqz_H}\\
+        \caption{Visualisation de $|H(f)|$ sur [0,0.5]}
+    \end{minipage}
+    \hfill%
+    \begin{minipage}[c]{.50\linewidth}
+        \centering
+        \includegraphics[width=1\textwidth]{./Images/freqz_G}\\
+        \caption{Visualisation de $|G(f)|$ sur [0,0.5]}
+    \end{minipage}
+\end{figure}\vspace{0.3cm}
+
+
+\chapter{Mise en cascade}
+
+
+\chapter{Mise en parallèle}
+
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
