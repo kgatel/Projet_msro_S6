@@ -104,7 +104,7 @@ $$ G(z) = \frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$ \\
 
 Dans un premier temps, on cherche à savoir si ces deux filtres sont réalisables physiquement.\\
 
-On s’intéressera ensuite à la mise en cascade de ces deux filtres pour déterminer s'il agit par équivalence d'un unique filtre.\\
+On s’intéressera ensuite à la mise en cascade de ces deux filtres pour déterminer s'il agit par équivalence d'un unique filtre. On initialisera ensuite un signal d'entrée pour déterminer la sortie du filtre.\\
 
 Enfin nous étudierons leur mise en parallèle avec les mêmes objectifs que pour la mise en cascade.
 
@@ -261,57 +261,115 @@ $$ G(z) = \frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$
 
 \chapter{Mise en cascade}
 
-On met en cascade les filtres $H(z)$ et $G(z)$. Posons $y_k$ le filtre équivalent à la convolutée tel que : 
-$$y_k=h_k*g_k$$
+\section{Filtre équivalent}
+
+On met en cascade les filtres $H(z)$ et $G(z)$. Posons $y_{1k}$ le filtre équivalent à la convolutée tel que : 
+$$y_{1k}=h_k*g_k$$
 
 On a :
-$$ Y(z)=\sum_{k=-\infty}^{\infty}y_kz^{-k}=\sum_{k=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mg_{k-m}\right)z^{-k} $$
+$$ Y_1(z)=\sum_{k=-\infty}^{\infty}y_{1k}z^{-k}=\sum_{k=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mg_{k-m}\right)z^{-k} $$
 
 On pose $n=k-m$
 
-$$ Y(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mg_n\right)z^{-(n+m)} $$
-$$ Y(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mz^{-m}\right)g_nz^{-n} $$
+$$ Y_1(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mg_n\right)z^{-(n+m)} $$
+$$ Y_1(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mz^{-m}\right)g_nz^{-n} $$
 
 On retrouve
-$$ Y(z)=H(z)G(z) $$
+$$ Y_1(z)=H(z)G(z) $$
 
 Le filtre équivalent à la mise en cascade des deux filtres est le produit des deux filtres.\\
 
-On a donc \\
-$$ Y(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})}*\frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$\\
-$$Y(z)= \frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}}*\frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$\\
+On sait que \\
+$$ Y_1(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})}*\frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$\\
+$\Longrightarrow$ mêmes pôles que $H$ et $G$ donc \textbf{filtre réalisable physiquement}.\\
+
+On donc :
+$$Y_1(z)= \frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}}*\frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$\\
 
 En développant on trouve :
-$$Y(z)=\frac{0.06-0.19z^{-1}+0.27z^{-2}-0.26z^{-3}+0.12z^{-4}}{1+1.6z^{-1}+2.28z^{-2}+1.325z^{-3}+0.68z^{-4}} $$\\
+$$Y_1(z)=\frac{0.06-0.19z^{-1}+0.27z^{-2}-0.26z^{-3}+0.12z^{-4}}{1+1.6z^{-1}+2.28z^{-2}+1.325z^{-3}+0.68z^{-4}} $$\\
 
 On peut ainsi représenter les pôles et les zéros de ce filtre sur le plan complexe comme ci-dessous :
 
 \begin{figure}[H]
 	\center
-	\includegraphics[width=0.6\textwidth]{./Images/zplane_HG}
-	\caption{Visualisation des pôles et des zéros du filtre $Y$}
+	\includegraphics[width=0.7\textwidth]{./Images/zplane_Y1}
+	\caption{Visualisation des pôles et des zéros du filtre $Y_1$}
 \end{figure}\vspace{0.2cm}
 
-On retrouve bien les deux pôles et les deux zéros des filtres respectifs $H$ et $G$.\\
+On retrouve bien les deux pôles et les deux zéros des filtres respectifs $H$ et $G$ ce qui est cohérent.\\
 
 On peut également visualiser sa réponse en fréquence ci-dessous :
 
 \begin{figure}[H]
 	\center
-	\includegraphics[width=0.6\textwidth]{./Images/freqz_HG}
-	\caption{Visualisation de $|Y(f)|$ sur [0,0.5]}
+	\includegraphics[width=0.7\textwidth]{./Images/freqz_Y1}
+	\caption{Visualisation de $|Y_1(f)|$ sur [0,0.5]}
 \end{figure}\vspace{0.2cm}
 
+
+\section{Mise en pratique du filtre}
+
+$\rightarrow$ créer un signal d'entrée $x_k$ et étudier la sortie $y_k$ avec la fonction \textbf{filter}
+
+
+
 \chapter{Mise en parallèle}
+
+\section{Filtre équivalent}
+
+On met en parallèle les filtres $H(z)$ et $G(z)$. Posons $y_{2k}$ le filtre équivalent à la convolutée tel que : 
+$$y_{2k}=h_k+g_k$$
+
+On a :
+$$ Y_2(z)=\sum_{k=-\infty}^{\infty}y_{2k}z^{-k}=\sum_{k=-\infty}^{\infty}(h_k+g_k)z^{-k} $$
+
+D'où :
+$$ Y_2(z)=\sum_{k=-\infty}^{\infty}h_kz^{-k}+\sum_{k=-\infty}^{\infty}g_kz^{-k} $$
+
+On retrouve :
+$$ Y_2(z)=H(z)+G(z)$$
+
+On sait que :
+$$ Y_2(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})}+\frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$
+
+$$ Y_2(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})(z-z_{1Dg})(z-z_{2Dg})+(z-z_{1Ng})(z-z_{2Ng})(z-z_{1Dh})(z-z_{2Dh})}{(z-z_{1Dh})(z-z_{2Dh})(z-z_{1Dg})(z-z_{2Dg})} $$\\
+$\Longrightarrow$ mêmes pôles que $H$ et $G$ donc \textbf{filtre réalisable physiquement}.\\
+
+
+On a donc :\\
+$$Y_2(z)=\frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}}+\frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$\\
+
+En développant et en sommant on trouve :
+$$Y_2(z)=\frac{0.5-0.31z^{-1}+0.525z^{-2}-0.02z^{-3}+0.58z^{-4}}{1+1.6z^{-1}+2.28z^{-2}+1.325z^{-3}+0.68z^{-4}} $$\\
+
+On peut ainsi représenter les pôles et les zéros de ce filtre sur le plan complexe comme ci-dessous :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.7\textwidth]{./Images/zplane_Y2}
+	\caption{Visualisation des pôles et des zéros du filtre $Y_2$}
+\end{figure}\vspace{0.2cm}
+
+On retrouve bien les deux pôles des filtres respectifs $H$ et $G$. Les zéros de ce filtre sont également bien différents de ceux de $H$ et $G$ ce qui est cohérent.\\
+
+On peut également visualiser sa réponse en fréquence ci-dessous :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.7\textwidth]{./Images/freqz_Y2}
+	\caption{Visualisation de $|Y_2(f)|$ sur [0,0.5]}
+\end{figure}\vspace{0.2cm}
+
+
+\section{Mise en pratique du filtre}
+
+$\rightarrow$ créer un signal d'entrée $x_k$ et étudier la sortie $y_k$ avec la fonction \textbf{filter}
 
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-
-
-\chapter*{Annexe}
-\addcontentsline{toc}{chapter}{Annexe}
 
 
 
