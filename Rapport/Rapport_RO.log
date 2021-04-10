@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.3)  10 APR 2021 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.7)  10 APR 2021 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -77,9 +77,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 \bbl@dirlevel=\count180
 )
 Package babel Info: \l@acadian = using hyphenrules for french
-(babel)             (\language53) on input line 91.
+(babel)             (\language37) on input line 91.
 Package babel Info: \l@canadien = using hyphenrules for french
-(babel)             (\language53) on input line 92.
+(babel)             (\language37) on input line 92.
 \FB@nonchar=\count181
 Package babel Info: Making : an active character on input line 419.
 Package babel Info: Making ; an active character on input line 420.
@@ -831,20 +831,16 @@ File: ./Images/freqz_Y1.jpg Graphic file (type jpg)
 <use ./Images/freqz_Y1.jpg>
 Package pdftex.def Info: ./Images/freqz_Y1.jpg  used on input line 309.
 (pdftex.def)             Requested size: 310.50357pt x 232.87689pt.
-[7 <./Images/zplane_Y1.jpg> <./Images/freqz_Y1.jpg>] [8]
+<./Images/filtercascade.jpg, id=151, 572.1375pt x 414.54875pt>
+File: ./Images/filtercascade.jpg Graphic file (type jpg)
+<use ./Images/filtercascade.jpg>
+Package pdftex.def Info: ./Images/filtercascade.jpg  used on input line 320.
+(pdftex.def)             Requested size: 310.50357pt x 224.97893pt.
+[7 <./Images/zplane_Y1.jpg> <./Images/freqz_Y1.jpg>] [8 <./Images/filtercascade
+.jpg>]
  3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--341
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--345
 
  []
 
@@ -853,47 +849,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
 
-<./Images/zplane_Y2.jpg, id=161, 562.1pt x 421.575pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
+
+ []
+
+<./Images/zplane_Y2.jpg, id=163, 562.1pt x 421.575pt>
 File: ./Images/zplane_Y2.jpg Graphic file (type jpg)
 <use ./Images/zplane_Y2.jpg>
-Package pdftex.def Info: ./Images/zplane_Y2.jpg  used on input line 353.
+Package pdftex.def Info: ./Images/zplane_Y2.jpg  used on input line 357.
 (pdftex.def)             Requested size: 310.50357pt x 232.87689pt.
 [9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
-<./Images/freqz_Y2.jpg, id=167, 562.1pt x 421.575pt>
+<./Images/freqz_Y2.jpg, id=169, 562.1pt x 421.575pt>
 File: ./Images/freqz_Y2.jpg Graphic file (type jpg)
 <use ./Images/freqz_Y2.jpg>
-Package pdftex.def Info: ./Images/freqz_Y2.jpg  used on input line 363.
+Package pdftex.def Info: ./Images/freqz_Y2.jpg  used on input line 367.
 (pdftex.def)             Requested size: 310.50357pt x 232.87689pt.
-[10 <./Images/zplane_Y2.jpg> <./Images/freqz_Y2.jpg>] [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
- [12
+[10 <./Images/zplane_Y2.jpg> <./Images/freqz_Y2.jpg>]
+<./Images/filterparallele.jpg, id=176, 562.1pt x 421.575pt>
+File: ./Images/filterparallele.jpg Graphic file (type jpg)
+<use ./Images/filterparallele.jpg>
+Package pdftex.def Info: ./Images/filterparallele.jpg  used on input line 379.
+(pdftex.def)             Requested size: 310.50357pt x 232.87689pt.
+ [11 <./Images/filterparallele.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--394
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
+[12
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
-
-(./Rapport_RO.aux
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
+ (./Rapport_RO.aux
 Package cleveref Info: loaded `french' language definitions on input line 25.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
 Package rerunfilecheck Info: File `Rapport_RO.out' has not changed.
-(rerunfilecheck)             Checksum: 4BA4E6D3C53C0DD1BDF019CCBED7DC94;1005.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
+(rerunfilecheck)             Checksum: 1AA992AD743ECACCBA2483BB2742A51A;1006.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 402.
  ) 
 Here is how much of TeX's memory you used:
- 14836 strings out of 481239
- 234359 string characters out of 5920377
- 565911 words of memory out of 5000000
- 29813 multiletter control sequences out of 15000+600000
+ 14858 strings out of 481239
+ 234915 string characters out of 5920377
+ 565912 words of memory out of 5000000
+ 29831 multiletter control sequences out of 15000+600000
  549986 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,42p,278b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,9n,42p,773b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -912,10 +937,10 @@ super/sfcc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1728.pfb><
 /usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fon
 ts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Rapport_RO.pdf (13 pages, 497311 bytes).
+Output written on Rapport_RO.pdf (13 pages, 540115 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
- 37 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 267 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

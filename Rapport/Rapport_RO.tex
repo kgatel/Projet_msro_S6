@@ -313,9 +313,13 @@ On peut également visualiser sa réponse en fréquence ci-dessous :
 
 \section{Mise en pratique du filtre}
 
-$\rightarrow$ créer un signal d'entrée $x_k$ et étudier la sortie $y_k$ avec la fonction \textbf{filter}
-
-
+On crée un signal d'entrée $x_k$ en prenant une fonction sinus sur $[-1;1]$.
+À l'aide de la fonction \textbf{filter} sur matlab nous rentrons les données correspondantes au filtre puis nous affichons le signal obtenue en sortie.
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.7\textwidth]{./Images/filtercascade}
+	\caption{Superposition du signal d'entrée et de sortie avec la mise en cascade des deux filtres}
+\end{figure}\vspace{0.2cm}
 
 \chapter{Mise en parallèle}
 
@@ -367,13 +371,32 @@ On peut également visualiser sa réponse en fréquence ci-dessous :
 
 \section{Mise en pratique du filtre}
 
-$\rightarrow$ créer un signal d'entrée $x_k$ et étudier la sortie $y_k$ avec la fonction \textbf{filter}
+De même mais cette fois pour la mise en parallèle des deux filtres. On crée un signal d'entrée $x_k$ en prenant une fonction sinus sur $[-1;1]$.
+À l'aide de la fonction \textbf{filter} sur matlab nous rentrons les données correspondantes au filtre puis nous affichons le signal obtenue en sortie.
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.7\textwidth]{./Images/filterparallele}
+	\caption{Superposition du signal d'entrée et de sortie avec la mise en parallèle des deux filtres}
+\end{figure}\vspace{0.2cm}
 
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-Ce projet nous a permis d'approfondir nos connaissances en théorie du signal ainsi qu'en compétences Matlab. En effet, nous avons pu voir l'aspect pratique et concret de notre cours de Signal sur les filtres discrets. 
+Pour conclure, rappelons tout d'abord le sujet de ce projet. Nous avions deux filtres linéaires données par leur transformée en Z. Nous avons pu tout d'abord analyser si ces mêmes filtres étaient réalisables physiquement d'un point de vue purement mathématique, avec la recherche des valeurs des pôles et zéros de chaque filtre en résolvant une équation du second degré. Nous avons obtenue principalement des valeurs remarquables complexes et il a fallu vérifier si les pôles appartenaient au cercle unité afin d'en conclure la réalisabilité physique des deux filtres. Pour le percevoir de façon concrète nous avons tracé à l'aide du logiciel Matlab les valeurs des pôles et zéros afin de valider nos calculs graphiquement.\\
+
+
+Dans un Second Temps nous avons étudier les effets d'une combinaison de ces deux filtres de deux manières différentes.\\
+Premièrement en mettant les filtres en cascade ou en série. Nous avons alors étudié de nouveau la réalisabilité de ce nouveau filtre ainsi que son effet sur un signal quelconque en l'occurrence un simple cosinus.\\
+Deuxièmement en mettant les filtres en parallèles. De même nous nous sommes intéressés   à la réalisabilité puis à son effet sur un signal.\\
+Dans les deux cas nous avons retracé les pôles et les zéros de nos filtres pour confirmer nos calculs.\\
+
+
+Ce projet avait donc pour objectif de travailler sur les filtres linéaires et leurs effets sur un signal. Nous avons vu que pour deux filtres possédant un effet propre à chacun. L'effet obtenu lors de la combinaison des deux n'étaient pas forcément le même selon que l'on mettait les filtres en séries ou en parallèle. On pourrait donc imaginer la même chose avec plus de filtres encore et toutes les possibilités de combinaisons qu'ils pourraient donner et l'effet obtenu en sortie.\\
+
+
+Pour finir ce projet nous aura permis d'accroître nos connaissances sur les filtres linéaires ainsi que nos compétences sur un logiciel tel que Matlab très utile également lors du traitement de signal. 
 
 
 \end{document}
