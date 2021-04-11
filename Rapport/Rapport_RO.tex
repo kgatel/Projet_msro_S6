@@ -266,7 +266,7 @@ Les deux filtres sont réalisables donc leur réponse en fréquence existe :\\
 
 \section{Filtre équivalent}
 
-On met en cascade les filtres $H(z)$ et $G(z)$. Posons $y_{1k}$ le filtre équivalent à la convolutée tel que : 
+On met en cascade les filtres $h_k$ et $g_k$. Posons $y_{1k}$ le filtre équivalent à la convolutée tel que : 
 $$y_{1k}=h_k*g_k$$
 
 On a :
@@ -280,11 +280,10 @@ $$ Y_1(z)=\sum_{n=-\infty}^{\infty}\left(\sum_{m=-\infty}^{\infty}h_mz^{-m}\righ
 On retrouve
 $$ Y_1(z)=H(z)G(z) $$
 
-Le filtre équivalent à la mise en cascade des deux filtres est le produit des deux filtres.\\
-
 On sait que \\
 $$ Y_1(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})}*\frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$\\
-$\Longrightarrow$ mêmes pôles que $H$ et $G$ donc \textbf{le filtre $y_{1k}$ est réalisable physiquement}.\\
+
+$\Longrightarrow$ mêmes pôles que $H(z)$ et $G(z)$ donc \textbf{le filtre $y_{1k}$ est réalisable physiquement}.\\
 
 On donc :
 $$Y_1(z)= \frac{0.3-0.2z^{-1}+0.4z^{-2}}{1+0.9z^{-1}+0.8z^{-2}}*\frac{0.2-0.5z^{-1}+0.3z^{-2}}{1+0.7z^{-1}+0.85z^{-2}} $$\\
@@ -314,7 +313,7 @@ On peut également visualiser sa réponse en fréquence ci-dessous :
 \section{Mise en pratique du filtre}
 
 On crée un signal d'entrée $x_k$ en prenant une fonction sinus sur $[-1;1]$.
-À l'aide de la fonction \textbf{filter} sur matlab nous rentrons les données correspondantes au filtre puis nous affichons le signal obtenue en sortie.
+À l'aide de la fonction \textbf{filter} sur matlab nous rentrons les données correspondantes au filtre puis nous affichons le signal obtenu en sortie.
 \begin{figure}[H]
 	\center
 	\includegraphics[width=0.7\textwidth]{./Images/filtercascade}
@@ -325,7 +324,7 @@ On crée un signal d'entrée $x_k$ en prenant une fonction sinus sur $[-1;1]$.
 
 \section{Filtre équivalent}
 
-On met en parallèle les filtres $H(z)$ et $G(z)$. Posons $y_{2k}$ le filtre équivalent à la convolutée tel que : 
+On met en parallèle les filtres $h_k$ et $g_k$. Posons $y_{2k}$ le filtre équivalent à la convolutée tel que : 
 $$y_{2k}=h_k+g_k$$
 
 On a :
@@ -341,7 +340,7 @@ On sait que :
 $$ Y_2(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})}{(z-z_{1Dh})(z-z_{2Dh})}+\frac{(z-z_{1Ng})(z-z_{2Ng})}{(z-z_{1Dg})(z-z_{2Dg})} $$
 
 $$ Y_2(z)= \frac{(z-z_{1Nh})(z-z_{2Nh})(z-z_{1Dg})(z-z_{2Dg})+(z-z_{1Ng})(z-z_{2Ng})(z-z_{1Dh})(z-z_{2Dh})}{(z-z_{1Dh})(z-z_{2Dh})(z-z_{1Dg})(z-z_{2Dg})} $$\\
-$\Longrightarrow$ mêmes pôles que $H$ et $G$ donc \textbf{le filtre $y_{2k}$ est réalisable physiquement}.\\
+$\Longrightarrow$ mêmes pôles que $H(z)$ et $G(z)$ donc \textbf{le filtre $y_{2k}$ est réalisable physiquement}.\\
 
 
 On a donc :\\
@@ -358,7 +357,7 @@ On peut ainsi représenter les pôles et les zéros de ce filtre sur le plan com
 	\caption{Visualisation des pôles et des zéros du filtre $y_{2k}$}
 \end{figure}\vspace{0.2cm}
 
-On retrouve bien les deux pôles des filtres respectifs $h_k$ et $g_k$. Les zéros de ce filtre sont également bien différents de ceux de $H$ et $G$ ce qui est cohérent.\\
+On retrouve bien les deux pôles des filtres respectifs $h_k$ et $g_k$. Les zéros de $Y_2(z)$ sont également bien différents de ceux de $H(z)$ et $G(z)$ ce qui est cohérent.\\
 
 On peut également visualiser sa réponse en fréquence ci-dessous :
 
@@ -372,7 +371,7 @@ On peut également visualiser sa réponse en fréquence ci-dessous :
 \section{Mise en pratique du filtre}
 
 De même mais cette fois pour la mise en parallèle des deux filtres. On crée un signal d'entrée $x_k$ en prenant une fonction sinus sur $[-1;1]$.
-À l'aide de la fonction \textbf{filter} sur matlab nous rentrons les données correspondantes au filtre puis nous affichons le signal obtenue en sortie.
+À l'aide de la fonction \textbf{filter} sur matlab nous rentrons les données correspondantes au filtre puis nous affichons le signal obtenu en sortie.
 
 \begin{figure}[H]
 	\center
@@ -384,19 +383,18 @@ De même mais cette fois pour la mise en parallèle des deux filtres. On crée u
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-Pour conclure, rappelons tout d'abord le sujet de ce projet. Nous avions deux filtres linéaires données par leur transformée en Z. Nous avons pu tout d'abord analyser si ces mêmes filtres étaient réalisables physiquement d'un point de vue purement mathématique, avec la recherche des valeurs des pôles et zéros de chaque filtre en résolvant une équation du second degré. Nous avons obtenue principalement des valeurs remarquables complexes et il a fallu vérifier si les pôles appartenaient au cercle unité afin d'en conclure la réalisabilité physique des deux filtres. Pour le percevoir de façon concrète nous avons tracé à l'aide du logiciel Matlab les valeurs des pôles et zéros afin de valider nos calculs graphiquement.\\
+Pour conclure, rappelons tout d'abord le sujet de ce projet. Nous avions deux filtres linéaires données par leur transformée en $z$. Nous avons pu tout d'abord analyser si ces mêmes filtres étaient réalisables physiquement d'un point de vue purement mathématique, avec la recherche des valeurs des pôles et zéros de chaque filtre en résolvant une équation du second degré. Nous avons obtenu principalement des valeurs remarquables complexes et il a fallu vérifier si les pôles appartenaient au cercle unité afin d'en conclure la réalisabilité physique des deux filtres. Pour le percevoir de façon concrète nous avons tracé à l'aide du logiciel Matlab les valeurs des pôles et zéros afin de valider nos calculs graphiquement.\\
 
 
-Dans un Second Temps nous avons étudier les effets d'une combinaison de ces deux filtres de deux manières différentes.\\
-Premièrement en mettant les filtres en cascade ou en série. Nous avons alors étudié de nouveau la réalisabilité de ce nouveau filtre ainsi que son effet sur un signal quelconque en l'occurrence un simple cosinus.\\
-Deuxièmement en mettant les filtres en parallèles. De même nous nous sommes intéressés   à la réalisabilité puis à son effet sur un signal.\\
+Dans un second temps nous avons étudié les effets d'une combinaison de ces deux filtres de deux manières différentes.\\
+Premièrement en mettant les filtres en cascade/série. Nous avons alors étudié de nouveau la réalisation de ce nouveau filtre ainsi que son effet sur un signal quelconque ,en l'occurrence un simple sinus.\\
+Deuxièmement en mettant les filtres en parallèles. Nous nous sommes intéressés de même à la réalisation de ce nouveau filtre puis à son effet sur un signal d'entrée.\\
 Dans les deux cas nous avons retracé les pôles et les zéros de nos filtres pour confirmer nos calculs.\\
 
 
-Ce projet avait donc pour objectif de travailler sur les filtres linéaires et leurs effets sur un signal. Nous avons vu que pour deux filtres possédant un effet propre à chacun. L'effet obtenu lors de la combinaison des deux n'étaient pas forcément le même selon que l'on mettait les filtres en séries ou en parallèle. On pourrait donc imaginer la même chose avec plus de filtres encore et toutes les possibilités de combinaisons qu'ils pourraient donner et l'effet obtenu en sortie.\\
+Ce projet avait donc pour objectif de travailler sur les filtres linéaires et leurs effets sur un signal. Nous avons vu pour deux filtres possédant un effet propre à chacun. L'effet obtenu lors de la combinaison des deux n'étaient pas forcément le même si l'on mettait les filtres en série ou en parallèle. On pourrait donc imaginer la même chose avec plus de filtres.\\
 
-
-Pour finir ce projet nous aura permis d'accroître nos connaissances sur les filtres linéaires ainsi que nos compétences sur un logiciel tel que Matlab très utile également lors du traitement de signal. 
+Pour finir ce projet nous aura permis d'accroître nos connaissances sur les filtres linéaires ainsi que nos compétences sur un logiciel tel que Matlab, très utilisé dans le traitement de signal. 
 
 
 \end{document}
